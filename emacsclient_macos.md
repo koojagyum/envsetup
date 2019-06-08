@@ -1,7 +1,7 @@
 Emacs client/server setup for macOS
 ----
 
-Using emacsclient makes you less tired for waiting initialization of Emacs instance. This guide is about setup Emacs daemon and client for macOS which is not fully described in [EmacsWiki][https://www.emacswiki.org/emacs/EmacsAsDaemon].
+Using emacsclient makes you less tired for waiting initialization of Emacs instance. This guide is about setup Emacs daemon and client for macOS which is not fully described in [EmacsWiki](https://www.emacswiki.org/emacs/EmacsAsDaemon).
 
 Environment:
 
@@ -20,7 +20,7 @@ Put above code in your init.el.
 
 ### 2. Create launch script
 
-You don't need to run `emacsclient` in Terminal app. Using [Script Editor][https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html] app, you can make AppleScript and run it by clicking icon in the Dock or Desktop screen. And you don't need to know all about the syntax of AppleScript language to launch emacsclient and Emacs daemon. Run Script Editor app and put below code(`/tmp/emacs501` is your `server-socket-dir`).
+You don't need to run `emacsclient` in Terminal app. Using [Script Editor](https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html) app, you can make AppleScript and run it by clicking icon in the Dock or Desktop screen. And you don't need to know all about the syntax of AppleScript language to launch emacsclient and Emacs daemon. Run Script Editor app and put below code(`/tmp/emacs501` is your `server-socket-dir`).
 
 ```sh
 try
@@ -35,7 +35,7 @@ on error
 end try
 ```
 
-This script first run emacsclient, and if there's an exception, launch Emacs daemon and run emacsclient again. With this, you don't need to run Emacs daemon in Terminal app or M-x `(server-start)` in another Emacs instance. [kevinjfoley][https://gist.github.com/redinger/1394910/c0dc6877c158a13760212dbe10b4abb32ae3c4f8#gistcomment-2561193] shared it and I added `--socket-name` argument.
+This script first run emacsclient, and if there's an exception, launch Emacs daemon and run emacsclient again. With this, you don't need to run Emacs daemon in Terminal app or M-x `(server-start)` in another Emacs instance. [kevinjfoley](https://gist.github.com/redinger/1394910/c0dc6877c158a13760212dbe10b4abb32ae3c4f8#gistcomment-2561193) shared it and I added `--socket-name` argument.
 
 Then go to File-Export. Select Application as File Format and check Run-only checkbox. Save it into a folder. I created `~/Applications` directory as bellow.
 
@@ -43,7 +43,7 @@ Then go to File-Export. Select Application as File Format and check Run-only che
 
 ### 3. Hide deamon app in the Dock menu
 
-You can run your emacsclient by clicking the icon you just created. But it makes your Dock messy by creating Emacs icon of daemon instance. You can get rid of this. Open Info.plist file of your app(in my case, ~/Applications/EmacsClient/Contents/Info.plist), add `LSUIElement` key and `1` as string like following.
+You can run your emacsclient by clicking the icon you just created. But it makes your Dock messy by creating Emacs icon of daemon instance. You can get rid of this. Open Info.plist file of your app(in my case, `~/Applications/EmacsClient/Contents/Info.plist`), add `LSUIElement` key and `1` as string like following.
 
 <img src="image/info_plist.png" />
 
