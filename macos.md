@@ -19,10 +19,10 @@ I prefer the latest GNU Emacs. I used to download GNU Emacs on [this
 site](https://emacsformacosx.com) or build the source on my machine,
 but recently I found more simple way to get it. Using homebrew, you can
 install Emacs almost without moving and clicking mouse! On the time I
-wrote this guide, homebrew installed Emacs version 26.1 with following
+wrote this guide, homebrew installed Emacs version 27.2 with following
 command.
 
-    brew install emacs --with-cocoa
+    brew install --cask emacs
 
 ## 3. Emacs configuration
 
